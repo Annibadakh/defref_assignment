@@ -94,6 +94,13 @@ app.use('*', (req, res) => {
     message: 'API endpoint not found'
   });
 });
+app.use('/', (req, res) => {
+  res.status(404).json({
+    success: true,
+    message: 'From server side'
+  });
+});
+
 
 // Error handler
 app.use(errorHandler);
