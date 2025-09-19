@@ -89,16 +89,18 @@ app.use('/api/pdfs', pdfRoutes);
 app.use('/api/annotations', annotationRoutes);
 
 // 404 handler
-app.use('*', (req, res) => {
-  res.status(404).json({
-    success: false,
-    message: 'API endpoint not found'
-  });
-});
+
 app.use('/', (req, res) => {
   res.status(404).json({
     success: true,
     message: 'From server side'
+  });
+});
+
+app.use('*', (req, res) => {
+  res.status(404).json({
+    success: false,
+    message: 'API endpoint not found'
   });
 });
 
